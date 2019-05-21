@@ -97,6 +97,10 @@ class Board extends Component {
         this.props.stopTimer();
     }
 
+    submitGame = () => {
+
+    }
+
     getBlank = () => {
         if (!this.state.solve) {
             return Math.random() > 0.5;
@@ -125,7 +129,7 @@ class Board extends Component {
                 <div className="buttons">
                     {/* Clear */}
                     <button 
-                        className="btn btn-outline-dark btn-sm"
+                        className="btn btn-outline-dark btn-sm button"
                         id="restartGame"
                         onClick={this.props.restartGame}
                     >
@@ -134,7 +138,7 @@ class Board extends Component {
 
                     {/* New Game */}
                     <button 
-                        className="btn btn-outline-dark btn-sm"
+                        className="btn btn-outline-dark btn-sm button"
                         id="newGame"
                         onClick={this.getNewGame}
                     >
@@ -143,11 +147,20 @@ class Board extends Component {
 
                     {/* Solve */}
                     <button 
-                        className="btn btn-outline-dark btn-sm"
+                        className="btn btn-danger btn-sm button"
                         id="solveGame"
                         onClick={this.solveGame}
                     >
                         Solve
+                    </button>
+
+                    {/* Submit */}
+                    <button 
+                        className="btn btn-success btn-sm button"
+                        id="submitGame"
+                        onClick={this.submitGame}
+                    >
+                        Submit
                     </button>
                 </div>
             </Container>

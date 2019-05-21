@@ -25,9 +25,14 @@ class Clock extends Component {
         });
     }
 
-    componentDidUpdate = () => {
-        if (this.state.stop) {
+    componentDidUpdate = (prevState) => {
 
+        let $this = this;
+
+        if (prevState.stop != this.props.stop) {
+            $this.setState({
+                stop: true,
+            });
         }
     }
 
@@ -51,6 +56,7 @@ class Clock extends Component {
     }
 
     render() {
+
         return (
             <Container>
                 <div className="clock">
