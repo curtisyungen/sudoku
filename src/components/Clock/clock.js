@@ -19,6 +19,7 @@ class Clock extends Component {
         let timer;
 
         this.setState({
+            counter: this.props.counter,
             stop: this.props.stop,
         }, () => {
             this.startTimer(timer);

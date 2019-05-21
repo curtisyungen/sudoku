@@ -13,12 +13,14 @@ class App extends Component {
     this.state = {
       isPlaying: false,
       restart: false,
+      counter: "00:00",
       stopTimer: false,
     }
   }
 
   setIsPlaying = () => {
     this.setState({
+      counter: "00:00",
       isPlaying: true,  
     });
   }
@@ -29,7 +31,7 @@ class App extends Component {
 
   stopTimer = () => {
     this.setState({
-      stopTimer: true,
+      stopTimer: true
     });
   }
 
@@ -44,6 +46,7 @@ class App extends Component {
         
         {this.state.isPlaying ? (
           <Clock 
+            counter={this.state.counter}
             stop={this.state.stopTimer}
           />
         ) : (
