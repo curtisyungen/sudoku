@@ -1,0 +1,21 @@
+.cell {
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    height: 50px;
+    line-height: 14px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 50px;
+}
+
+.light {
+    background: white;
+}
+
+.dark {
+    background: #efefef;
+}
