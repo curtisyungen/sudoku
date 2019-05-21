@@ -11,3 +11,7 @@
     text-align: center;
     width: 50px;
 }
+
+.cell:focus {
+    background: rgba(194, 78, 0, 0.644) !important;
+}
