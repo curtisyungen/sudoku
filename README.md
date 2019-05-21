@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sudoku App
+
+This app is deployed on Heroku here: https://sudoku-cjy.herokuapp.com/
 
 ## Available Scripts
 
