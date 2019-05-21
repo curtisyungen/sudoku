@@ -1,9 +1,9 @@
 .cell {
-    border: 1px solid black;
+    border: 1px dotted gray;
     color: black;
     cursor: pointer;
     float: left;
-    font-size: 14px;
+    font-size: 18px;
     height: 50px;
     line-height: 14px;
     margin: 0;

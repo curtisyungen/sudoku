@@ -18,6 +18,10 @@ class Board extends Component {
         this.getNewGame();
     }
 
+    restartGame = () => {
+        
+    }
+
     getNewGame = () => {
 
         let row, col, rowSect, colSect, limit = 0;
@@ -118,6 +122,15 @@ class Board extends Component {
                 </div>
 
                 <div className="buttons">
+                    {/* Clear */}
+                    <button 
+                        className="btn btn-outline-dark btn-sm"
+                        id="restartGame"
+                        onClick={this.restartGame}
+                    >
+                        Restart
+                    </button>
+
                     {/* New Game */}
                     <button 
                         className="btn btn-outline-dark btn-sm"
