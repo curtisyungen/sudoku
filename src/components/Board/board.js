@@ -16,10 +16,7 @@ class Board extends Component {
 
     componentDidMount = () => {
         this.getNewGame();
-    }
-
-    restartGame = () => {
-        
+        this.props.setIsPlaying();
     }
 
     getNewGame = () => {
@@ -88,12 +85,16 @@ class Board extends Component {
             cells: cells,
             solve: false,
         }, () => { console.log(this.state) });
+
+        this.props.setIsPlaying();
     }
 
     solveGame = () => {
         this.setState({
             solve: true,
         });
+
+        this.props.stopTimer();
     }
 
     getBlank = () => {
@@ -126,7 +127,7 @@ class Board extends Component {
                     <button 
                         className="btn btn-outline-dark btn-sm"
                         id="restartGame"
-                        onClick={this.restartGame}
+                        onClick={this.props.restartGame}
                     >
                         Restart
                     </button>

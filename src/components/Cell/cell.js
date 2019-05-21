@@ -36,7 +36,7 @@ class Cell extends Component {
             color = "dark";
         }
 
-        if (this.state.rowSect == 1 && this.state.colSect == 1) {
+        if (this.state.rowSect === 1 && this.state.colSect === 1) {
             color = "dark";
         }
 
@@ -51,7 +51,7 @@ class Cell extends Component {
             this.props.blank ? (
                 <input className={`cell blank ${this.state.color}`} maxLength="1"></input>
             ) : (
-                <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} />
+                <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} readOnly/>
             )
         );
     }
