@@ -49,9 +49,9 @@ class Cell extends Component {
         return (
 
             this.props.blank ? (
-                <input className={`cell ${this.state.color}`} maxLength="1"></input>
+                <input className={`cell blank ${this.state.color}`} maxLength="1"></input>
             ) : (
-                <input className={`cell ${this.state.color}`} maxLength="1" value={this.state.value} />
+                <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} />
             )
         );
     }
