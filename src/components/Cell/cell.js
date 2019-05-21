@@ -36,6 +36,10 @@ class Cell extends Component {
             color = "dark";
         }
 
+        if (this.state.rowSect == 1 && this.state.colSect == 1) {
+            color = "dark";
+        }
+
         this.setState({
             color: color,   
         });
