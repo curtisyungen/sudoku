@@ -14,7 +14,7 @@ class Clock extends Component {
     }
 
     componentDidMount = () => {
-        this.props.startGame();
+        this.props.start();
     }
 
     componentDidUpdate = (prevProps, prevState) => {
