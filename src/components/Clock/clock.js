@@ -30,6 +30,9 @@ class Clock extends Component {
         if (prevState.play != this.state.play) {
             if (this.state.play) {
                 this.startTimer();
+                this.setState({
+                    counter: "00:00",
+                });
             }
             else {
                 this.stopTimer();

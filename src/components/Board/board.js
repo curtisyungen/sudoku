@@ -103,8 +103,6 @@ class Board extends Component {
 
     submitGame = (event) => {
         this.props.endGame();
-
-        console.log("Submit", event);
     }
 
     render() {
