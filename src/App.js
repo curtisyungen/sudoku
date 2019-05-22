@@ -53,54 +53,70 @@ class App extends Component {
         />
 
         <div className="buttons">
-          {/* Clear */}
-          <button
-            className="btn btn-outline-dark btn-sm button"
-            id="restartGame"
-            onClick={(event) => {
-              event.preventDefault();
-              this.restartGame();
-            }}
-          >
-            Restart
+          {/* Restart */}
+          {this.state.play ? (
+            <button
+              className="btn btn-outline-dark btn-sm button"
+              id="restartGame"
+              onClick={(event) => {
+                event.preventDefault();
+                this.restartGame();
+              }}
+            >
+              Restart
             </button>
+          ) : (
+            <></>
+          )}
 
           {/* New Game */}
-          <button
-            className="btn btn-outline-dark btn-sm button"
-            id="newGame"
-            onClick={(event) => {
-              event.preventDefault();
-              this.newGame();
-            }}
-          >
-            New Game
+          {!this.state.play ? (
+            <button
+              className="btn btn-outline-dark btn-sm button"
+              id="newGame"
+              onClick={(event) => {
+                event.preventDefault();
+                this.newGame();
+              }}
+            >
+              New Game
             </button>
-
+          ) : (
+            <></>
+          )}
+            
           {/* Solve */}
-          <button
-            className="btn btn-danger btn-sm button"
-            id="solveGame"
-            onClick={(event) => {
-              event.preventDefault();
-              this.solveGame();
-            }}
-          >
-            Solve
+          {this.state.play ? (
+            <button
+              className="btn btn-danger btn-sm button"
+              id="solveGame"
+              onClick={(event) => {
+                event.preventDefault();
+                this.solveGame();
+              }}
+            >
+              Solve
             </button>
+          ) : (
+            <></>
+          )}
 
           {/* Submit */}
-          <button
-            className="btn btn-success btn-sm button"
-            id="submitGame"
-            type="submit"
-            onClick={(event) => {
-              event.preventDefault();
-              this.submitGame();
-            }}
-          >
-            Submit
+          {this.state.play ? (
+            <button
+              className="btn btn-success btn-sm button"
+              id="submitGame"
+              type="submit"
+              onClick={(event) => {
+                event.preventDefault();
+                this.submitGame();
+              }}
+            >
+              Submit
             </button>
+          ) : (
+            <></>
+          )}
         </div>
 
         <Clock
