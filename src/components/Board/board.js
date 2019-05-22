@@ -97,18 +97,23 @@ class Board extends Component {
     }
 
     getBlank = () => {
-        return Math.random() > 0.5;
+        if (this.props.play) {
+            return Math.random() > 0.5;
+        }
+
+        return false;
     }
 
     render() {
         return (
             <Container>
                 <div className="board">
-                    {this.state.cells.length || this.state.restart ? (
+                    {this.state.cells.length ? (
                         this.state.cells.map(cell => (
                             <Cell
                                 key={Math.random()}
                                 data={cell}
+                                play={this.props.play}
                             />
                         ))
                     ) : (

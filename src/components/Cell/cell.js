@@ -28,6 +28,16 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.play != this.props.play) {
+            if (this.props.play) {
+                this.setState({
+                    blank: false,
+                });
+            }
+        }
+    }
+
     getColor = () => {
 
         let color = "light";
@@ -48,7 +58,7 @@ class Cell extends Component {
     render() {
         return (
 
-            this.props.blank ? (
+            this.props.data.blank ? (
                 <input className={`cell blank ${this.state.color}`} maxLength="1"></input>
             ) : (
                 <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} readOnly/>
