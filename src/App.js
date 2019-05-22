@@ -35,6 +35,10 @@ class App extends Component {
     this.endGame();
   }
 
+  submitGame = () => {
+    this.endGame();
+  }
+
   render() {
     return (
       <Container>
@@ -85,7 +89,7 @@ class App extends Component {
             type="submit"
             onClick={(event) => {
               event.preventDefault();
-
+              this.submitGame();
             }}
           >
             Submit
