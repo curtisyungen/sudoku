@@ -11,48 +11,40 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isPlaying: false,
-      restart: false,
-      counter: "00:00",
-      stopTimer: false,
+      play: false,
     }
   }
 
-  setIsPlaying = () => {
+  playGame = () => {
     this.setState({
-      counter: "00:00",
-      isPlaying: true,  
+      play: true,  
+    });
+  }
+
+  endGame = () => {
+    this.setState({
+      play: false,
     });
   }
 
   restartGame = () => {
-
+    this.endGame();
+    this.playGame();
   }
 
-  stopTimer = () => {
-    this.setState({
-      stopTimer: true
-    });
-  }
 
   render() {
     return (
       <Container>
         <Board 
-          setIsPlaying={this.setIsPlaying}
+          playGame={this.playGame}
+          endGame={this.endGame}
           restartGame={this.restartGame}
-          stopTimer={this.stopTimer}
         />
-        
-        {this.state.isPlaying ? (
-          <Clock 
-            counter={this.state.counter}
-            stop={this.state.stopTimer}
-          />
-        ) : (
-          <></>
-        )}
-        
+
+        <Clock 
+          play={this.state.play}
+        />
       </Container>
     )
   }

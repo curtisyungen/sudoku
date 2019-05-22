@@ -9,40 +9,40 @@ class Clock extends Component {
         super(props);
 
         this.state = {
+            play: false,
             counter: "00:00",
-            stop: false,
         }
     }
 
     componentDidMount = () => {
-
-        let timer;
-
         this.setState({
-            counter: this.props.counter,
-            stop: this.props.stop,
-        }, () => {
-            this.startTimer(timer);
+            play: this.props.play,
         });
     }
 
-    componentDidUpdate = (prevState) => {
-
-        let $this = this;
-
-        if (prevState.stop != this.props.stop) {
-            $this.setState({
-                stop: true,
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevProps.play != this.props.play) {
+            this.setState({
+                play: this.props.play,
             });
+        }
+
+        if (prevState.play != this.state.play) {
+            if (this.state.play) {
+                this.startTimer();
+            }
+            else {
+                this.stopTimer();
+            }
         }
     }
 
-    startTimer = (timer) => {
+    startTimer = () => {
 
         let count, counter = 1;
         let $this = this;
         
-        timer = setInterval(function() {
+        let timer = setInterval(function() {
 
             count = moment().minute(0).second(counter++).format('mm:ss');
 
@@ -53,7 +53,17 @@ class Clock extends Component {
             }
         }, 1000);
 
-        
+        this.setState({
+            timer: timer,
+        });
+    }
+
+    stopTimer = () => {
+        this.setState({
+            stop: true,
+        });
+
+        clearInterval(this.state.timer);
     }
 
     render() {

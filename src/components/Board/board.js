@@ -16,7 +16,7 @@ class Board extends Component {
 
     componentDidMount = () => {
         this.getNewGame();
-        this.props.setIsPlaying();
+        this.props.playGame();
     }
 
     getNewGame = () => {
@@ -82,23 +82,8 @@ class Board extends Component {
 
         // Update cells array in state
         this.setState({
-            cells: cells,
-            solve: false,
-        }, () => { console.log(this.state) });
-
-        this.props.setIsPlaying();
-    }
-
-    solveGame = () => {
-        this.setState({
-            solve: true,
+            cells: cells
         });
-
-        this.props.stopTimer();
-    }
-
-    submitGame = () => {
-
     }
 
     getBlank = () => {
@@ -107,6 +92,18 @@ class Board extends Component {
         }
 
         return false;
+    }
+
+    solveGame = () => {
+        this.setState({
+            solve: true,
+        }, () => {
+            this.props.endGame();
+        });
+    }
+
+    submitGame = () => {
+        this.props.endGame();
     }
 
     render() {
