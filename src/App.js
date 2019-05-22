@@ -11,11 +11,11 @@ class App extends Component {
     super(props);
 
     this.state = {
-      play: false,
+      play: true,
     }
   }
 
-  playGame = () => {
+  startGame = () => {
     this.setState({
       play: true,  
     });
@@ -34,26 +34,16 @@ class App extends Component {
 
   solveGame = () => {
     this.setState({
-        solve: true,
-    }, () => {
-        this.props.endGame();
-    });
+      play: false,
+      solve: true,
+    })
   }
-
-  submitGame = (event) => {
-      this.props.endGame();
-  }
-
 
   render() {
     return (
       <Container>
 
-        <Board 
-          playGame={this.playGame}
-          endGame={this.endGame}
-          restartGame={this.restartGame}
-        />
+        <Board />
 
         <div className="buttons">
             {/* Clear */}
