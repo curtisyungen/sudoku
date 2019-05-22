@@ -17,7 +17,7 @@ class App extends Component {
 
   startGame = () => {
     this.setState({
-      play: true,  
+      play: true,
     });
   }
 
@@ -36,7 +36,7 @@ class App extends Component {
     this.setState({
       play: false,
       solve: true,
-    })
+    });
   }
 
   render() {
@@ -46,57 +46,57 @@ class App extends Component {
         <Board />
 
         <div className="buttons">
-            {/* Clear */}
-            <button 
-                className="btn btn-outline-dark btn-sm button"
-                id="restartGame"
-                onClick={(event) => {
-                    event.preventDefault(); 
-
-                }}
-            >
-                Restart
+          {/* Clear */}
+          <button
+            className="btn btn-outline-dark btn-sm button"
+            id="restartGame"
+            onClick={(event) => {
+              event.preventDefault();
+              this.restartGame();
+            }}
+          >
+            Restart
             </button>
 
-            {/* New Game */}
-            <button 
-                className="btn btn-outline-dark btn-sm button"
-                id="newGame"
-                onClick={(event) => {
-                    event.preventDefault(); 
-
-                }}
-            >
-                New Game
+          {/* New Game */}
+          <button
+            className="btn btn-outline-dark btn-sm button"
+            id="newGame"
+            onClick={(event) => {
+              event.preventDefault();
+              this.startGame();
+            }}
+          >
+            New Game
             </button>
 
-            {/* Solve */}
-            <button 
-                className="btn btn-danger btn-sm button"
-                id="solveGame"
-                onClick={(event) => {
-                    event.preventDefault(); 
-
-                }}
-            >
-                Solve
+          {/* Solve */}
+          <button
+            className="btn btn-danger btn-sm button"
+            id="solveGame"
+            onClick={(event) => {
+              event.preventDefault();
+              this.solveGame();
+            }}
+          >
+            Solve
             </button>
 
-            {/* Submit */}
-            <button 
-                className="btn btn-success btn-sm button"
-                id="submitGame"
-                type="submit"
-                onClick={(event) => {
-                    event.preventDefault(); 
+          {/* Submit */}
+          <button
+            className="btn btn-success btn-sm button"
+            id="submitGame"
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault();
 
-                }}
-            >
-                Submit
+            }}
+          >
+            Submit
             </button>
         </div>
 
-        <Clock 
+        <Clock
           play={this.state.play}
         />
 
