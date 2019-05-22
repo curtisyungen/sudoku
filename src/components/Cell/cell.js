@@ -29,8 +29,9 @@ class Cell extends Component {
     }
 
     componentDidUpdate = (prevProps) => {
+        console.log("Cell Props", this.props);
         if (prevProps.play != this.props.play) {
-            if (this.props.play) {
+            if (!this.props.play) {
                 this.setState({
                     blank: false,
                 });
