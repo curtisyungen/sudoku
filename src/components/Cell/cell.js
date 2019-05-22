@@ -11,9 +11,10 @@ class Cell extends Component {
             col: null,
             rowSect: null,
             colSect: null,
-            value: 0,
+            value: "",
             blank: null, 
             color: null,
+            userInput: "",
         }
     }
 
@@ -28,15 +29,21 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
-    componentDidUpdate = (prevProps) => {
-        console.log("Cell Props", this.props);
-        if (prevProps.play != this.props.play) {
+    componentWillUpdate = (prevProps) => {
+        if (prevProps.play !== this.props.play) {
             if (!this.props.play) {
                 this.setState({
                     blank: false,
                 });
             }
         }
+    }
+
+    handleInputChange = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            userInput: event.target.value
+        });
     }
 
     getColor = () => {
@@ -58,12 +65,13 @@ class Cell extends Component {
 
     render() {
         return (
-
-            this.state.blank || this.props.data.blank ? (
-                <input className={`cell blank ${this.state.color}`} maxLength="1"></input>
-            ) : (
-                <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} readOnly/>
-            )
+            <input 
+                className={`cell blank-${this.state.blank} ${this.state.color}`}  
+                maxLength="1" 
+                onChange={this.handleInputChange}
+                readOnly={!this.state.blank}
+                value={this.state.blank ? (this.state.userInput):(this.props.data.value)}
+            />
         );
     }
 }

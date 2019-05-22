@@ -10,7 +10,7 @@ class Board extends Component {
 
         this.state = {
             cells: [],
-            play: false,
+            play: null,
         }
     }
 
@@ -21,7 +21,7 @@ class Board extends Component {
     }
 
     componentDidUpdate = (prevProps) => {
-        if (prevProps.play != this.props.play) {
+        if (prevProps.play !== this.props.play) {
             if (this.props.play) {
                 this.getNewGame();
             }
