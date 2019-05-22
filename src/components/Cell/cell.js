@@ -12,7 +12,7 @@ class Cell extends Component {
             rowSect: null,
             colSect: null,
             value: 0,
-            blank: false, 
+            blank: null, 
             color: null,
         }
     }
@@ -59,7 +59,7 @@ class Cell extends Component {
     render() {
         return (
 
-            this.state.blank ? (
+            this.state.blank || this.props.data.blank ? (
                 <input className={`cell blank ${this.state.color}`} maxLength="1"></input>
             ) : (
                 <input className={`cell const ${this.state.color}`} maxLength="1" value={this.state.value} readOnly/>
