@@ -9,14 +9,12 @@ class Board extends Component {
         super(props);
 
         this.state = {
-            cells: [],
-            solve: false,
+            cells: []
         }
     }
 
     componentDidMount = () => {
         this.getNewGame();
-        this.props.playGame();
     }
 
     getNewGame = () => {
@@ -87,22 +85,7 @@ class Board extends Component {
     }
 
     getBlank = () => {
-        if (!this.state.solve) {
-            return Math.random() > 0.5;
-        }
-        return false;
-    }
-
-    solveGame = () => {
-        this.setState({
-            solve: true,
-        }, () => {
-            this.props.endGame();
-        });
-    }
-
-    submitGame = (event) => {
-        this.props.endGame();
+        return Math.random() > 0.5;
     }
 
     render() {
@@ -120,57 +103,6 @@ class Board extends Component {
                     ) : (
                             <></>
                         )}
-                </div>
-
-                <div className="buttons">
-                    {/* Clear */}
-                    <button 
-                        className="btn btn-outline-dark btn-sm button"
-                        id="restartGame"
-                        onClick={(event) => {
-                            event.preventDefault(); 
-                            this.props.restartGame();
-                        }}
-                    >
-                        Restart
-                    </button>
-
-                    {/* New Game */}
-                    <button 
-                        className="btn btn-outline-dark btn-sm button"
-                        id="newGame"
-                        onClick={(event) => {
-                            event.preventDefault(); 
-                            this.getNewGame();
-                        }}
-                    >
-                        New Game
-                    </button>
-
-                    {/* Solve */}
-                    <button 
-                        className="btn btn-danger btn-sm button"
-                        id="solveGame"
-                        onClick={(event) => {
-                            event.preventDefault(); 
-                            this.solveGame();
-                        }}
-                    >
-                        Solve
-                    </button>
-
-                    {/* Submit */}
-                    <button 
-                        className="btn btn-success btn-sm button"
-                        id="submitGame"
-                        type="submit"
-                        onClick={(event) => {
-                            event.preventDefault(); 
-                            this.submitGame(event);
-                        }}
-                    >
-                        Submit
-                    </button>
                 </div>
             </Container>
 

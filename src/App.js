@@ -32,19 +32,84 @@ class App extends Component {
     this.playGame();
   }
 
+  solveGame = () => {
+    this.setState({
+        solve: true,
+    }, () => {
+        this.props.endGame();
+    });
+  }
+
+  submitGame = (event) => {
+      this.props.endGame();
+  }
+
 
   render() {
     return (
       <Container>
+
         <Board 
           playGame={this.playGame}
           endGame={this.endGame}
           restartGame={this.restartGame}
         />
 
+        <div className="buttons">
+            {/* Clear */}
+            <button 
+                className="btn btn-outline-dark btn-sm button"
+                id="restartGame"
+                onClick={(event) => {
+                    event.preventDefault(); 
+
+                }}
+            >
+                Restart
+            </button>
+
+            {/* New Game */}
+            <button 
+                className="btn btn-outline-dark btn-sm button"
+                id="newGame"
+                onClick={(event) => {
+                    event.preventDefault(); 
+
+                }}
+            >
+                New Game
+            </button>
+
+            {/* Solve */}
+            <button 
+                className="btn btn-danger btn-sm button"
+                id="solveGame"
+                onClick={(event) => {
+                    event.preventDefault(); 
+
+                }}
+            >
+                Solve
+            </button>
+
+            {/* Submit */}
+            <button 
+                className="btn btn-success btn-sm button"
+                id="submitGame"
+                type="submit"
+                onClick={(event) => {
+                    event.preventDefault(); 
+
+                }}
+            >
+                Submit
+            </button>
+        </div>
+
         <Clock 
           play={this.state.play}
         />
+
       </Container>
     )
   }
