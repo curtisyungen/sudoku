@@ -23,7 +23,7 @@ class Board extends Component {
     componentDidUpdate = (prevProps) => {
         if (prevProps.play != this.props.play) {
             if (this.props.play) {
-                this.getNewName();
+                this.getNewGame();
             }
         }
     }
