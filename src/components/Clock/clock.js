@@ -9,7 +9,7 @@ class Clock extends Component {
         super(props);
 
         this.state = {
-            counter: 1,
+            counter: "00:00",
             timer: null,
         }
     }
@@ -22,7 +22,7 @@ class Clock extends Component {
         if (prevProps.play != this.props.play) {
             if (this.props.play) {
                 this.setState({
-                    counter: 1,
+                    counter: "00:00",
                 }, () => {this.startTimer()});
             }
             else {
