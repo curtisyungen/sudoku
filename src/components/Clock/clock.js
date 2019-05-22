@@ -10,6 +10,7 @@ class Clock extends Component {
 
         this.state = {
             counter: 1,
+            timer: null,
         }
     }
 
@@ -36,7 +37,7 @@ class Clock extends Component {
         let $this = this;
         
         let timer = setInterval(function() {
-            count = moment().minute().second(counter++).format('mm:ss');
+            count = moment().minute(0).second(counter++).format('mm:ss');
 
             $this.setState({
                 counter: count,
