@@ -31,6 +31,11 @@ class App extends Component {
     this.endGame();
   }
 
+  newGame = () => {
+    this.endGame();
+    this.startGame();
+  }
+
   solveGame = () => {
     this.endGame();
   }
@@ -43,7 +48,9 @@ class App extends Component {
     return (
       <Container>
 
-        <Board />
+        <Board 
+          play={this.state.play}
+        />
 
         <div className="buttons">
           {/* Clear */}
@@ -64,7 +71,7 @@ class App extends Component {
             id="newGame"
             onClick={(event) => {
               event.preventDefault();
-              this.startGame();
+              this.newGame();
             }}
           >
             New Game

@@ -9,12 +9,23 @@ class Board extends Component {
         super(props);
 
         this.state = {
-            cells: []
+            cells: [],
+            play: false,
         }
     }
 
     componentDidMount = () => {
-        this.getNewGame();
+        this.setState({
+            play: this.props.play,
+        });
+    }
+
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.play != this.props.play) {
+            if (this.props.play) {
+                this.getNewName();
+            }
+        }
     }
 
     getNewGame = () => {
@@ -71,7 +82,8 @@ class Board extends Component {
                     col: col,
                     rowSect: rowSect,
                     colSect: colSect,
-                    value: value
+                    value: value,
+                    blank: this.getBlank(),
                 });
             }
 
@@ -92,12 +104,11 @@ class Board extends Component {
         return (
             <Container>
                 <div className="board">
-                    {this.state.cells.length ? (
+                    {this.state.cells.length || this.state.restart ? (
                         this.state.cells.map(cell => (
                             <Cell
                                 key={Math.random()}
                                 data={cell}
-                                blank={this.getBlank()}
                             />
                         ))
                     ) : (

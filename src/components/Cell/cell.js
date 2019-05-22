@@ -24,7 +24,7 @@ class Cell extends Component {
             rowSect: this.props.data.rowSect,
             colSect: this.props.data.colSect,
             value: this.props.data.value,
-            blank: this.props.blank
+            blank: this.props.data.blank
         }, () => {this.getColor()});
     }
 
