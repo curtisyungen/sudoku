@@ -101,10 +101,10 @@ class Board extends Component {
         });
     }
 
-    submitGame = () => {
+    submitGame = (event) => {
         this.props.endGame();
 
-        console.log("Submit", $(this));
+        console.log("Submit", event);
     }
 
     render() {
@@ -168,7 +168,7 @@ class Board extends Component {
                         type="submit"
                         onClick={(event) => {
                             event.preventDefault(); 
-                            this.submitGame();
+                            this.submitGame(event);
                         }}
                     >
                         Submit
