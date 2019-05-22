@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      play: true,
+      play: false,
     }
   }
 
@@ -29,14 +29,10 @@ class App extends Component {
 
   restartGame = () => {
     this.endGame();
-    this.playGame();
   }
 
   solveGame = () => {
-    this.setState({
-      play: false,
-      solve: true,
-    });
+    this.endGame();
   }
 
   render() {
@@ -97,6 +93,7 @@ class App extends Component {
         </div>
 
         <Clock
+          start={this.startGame}
           play={this.state.play}
         />
 

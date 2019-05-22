@@ -13,6 +13,10 @@ class Clock extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.props.startGame();
+    }
+
     componentDidUpdate = (prevProps, prevState) => {
         if (prevProps.play != this.props.play) {
             if (this.props.play) {
