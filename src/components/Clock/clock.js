@@ -18,7 +18,7 @@ class Clock extends Component {
         this.props.start();
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
+    componentDidUpdate = (prevProps) => {
         if (prevProps.play !== this.props.play) {
             if (this.props.play) {
                 this.setState({
@@ -32,7 +32,6 @@ class Clock extends Component {
     }
 
     startTimer = () => {
-
         let count, counter = 0;
         let $this = this;
         

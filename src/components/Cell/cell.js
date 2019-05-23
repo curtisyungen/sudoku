@@ -15,7 +15,6 @@ class Cell extends Component {
             blank: null, 
             color: null,
             userInput: "",
-            play: false,
         }
     }
 
@@ -31,7 +30,6 @@ class Cell extends Component {
     }
 
     handleInputChange = (event) => {
-        console.log(event.target.value);
         this.setState({
             userInput: event.target.value
         });
