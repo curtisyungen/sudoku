@@ -31,7 +31,6 @@ class Cell extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        console.log(this.props);
         if (prevState.play !== this.props.play) {
             if (!this.props.play) {
                 this.setState({
@@ -72,7 +71,7 @@ class Cell extends Component {
                 maxLength="1" 
                 onChange={this.handleInputChange}
                 readOnly={!this.state.blank}
-                value={this.state.blank ? (this.state.userInput):(this.props.data.value)}
+                value={this.state.blank && this.props.play ? (this.state.userInput):(this.props.data.value)}
             />
         );
     }
