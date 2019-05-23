@@ -15,6 +15,7 @@ class Cell extends Component {
             blank: null, 
             color: null,
             userInput: "",
+            isCorrect: null,
         }
     }
 
@@ -53,18 +54,24 @@ class Cell extends Component {
     }
 
     checkCellValue = () => {
-        if (this.state.userInput !== this.state.value.toString()) {
+        if (this.state.userInput !== "" && this.state.userInput !== this.state.value.toString()) {
             console.log("wrong");
+            this.setState({
+                isCorrect: false,
+            });
         }
         else {
             console.log("right");
+            this.setState({
+                isCorrect: true,
+            });
         }
     }
 
     render() {
         return (
             <input 
-                className={`cell blank-${this.state.blank} ${this.state.color}`}  
+                className={`cell blank-${this.state.blank} correct-${this.state.isCorrect} ${this.state.color}`}  
                 maxLength="1" 
                 onChange={this.handleInputChange}
                 readOnly={!this.state.blank}

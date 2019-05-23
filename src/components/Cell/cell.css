@@ -20,3 +20,7 @@
 .blank-false {
     font-weight: 600;
 }
+
+.correct-false {
+    color: rgba(255, 0, 0, 0.685);
+}
