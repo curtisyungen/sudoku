@@ -19,6 +19,7 @@ class Clock extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
+        console.log(prevProps.play, this.props.play);
         if (prevProps.play !== this.props.play) {
             if (this.props.play) {
                 this.setState({

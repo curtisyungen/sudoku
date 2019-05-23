@@ -30,16 +30,6 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.play !== this.props.play) {
-            if (!this.props.play) {
-                this.setState({
-                    blank: false,
-                });
-            }
-        }
-    }
-
     handleInputChange = (event) => {
         console.log(event.target.value);
         this.setState({
