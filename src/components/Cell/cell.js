@@ -53,8 +53,7 @@ class Cell extends Component {
     }
 
     checkCellValue = () => {
-        console.log(this.state);
-        if (this.state.userInput !== this.state.value) {
+        if (this.state.userInput !== this.state.value.toString()) {
             console.log("wrong");
         }
         else {
