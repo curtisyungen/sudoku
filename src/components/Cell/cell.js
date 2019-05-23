@@ -27,17 +27,15 @@ class Cell extends Component {
             colSect: this.props.data.colSect,
             value: this.props.data.value,
             blank: this.props.data.blank,
-            play: this.props.play,
         }, () => {this.getColor()});
     }
 
-    componentWillUpdate = (prevProps, prevState) => {
-        console.log(prevState.play, this.props.play);
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log(this.props);
         if (prevState.play !== this.props.play) {
             if (!this.props.play) {
                 this.setState({
                     blank: false,
-                    play: this.props.play,
                 });
             }
         }
