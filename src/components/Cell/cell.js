@@ -15,6 +15,7 @@ class Cell extends Component {
             blank: null, 
             color: null,
             userInput: "",
+            play: false,
         }
     }
 
@@ -25,15 +26,18 @@ class Cell extends Component {
             rowSect: this.props.data.rowSect,
             colSect: this.props.data.colSect,
             value: this.props.data.value,
-            blank: this.props.data.blank
+            blank: this.props.data.blank,
+            play: this.props.play,
         }, () => {this.getColor()});
     }
 
-    componentWillUpdate = (prevProps) => {
-        if (prevProps.play !== this.props.play) {
+    componentWillUpdate = (prevProps, prevState) => {
+        console.log(prevState.play, this.props.play);
+        if (prevState.play !== this.props.play) {
             if (!this.props.play) {
                 this.setState({
                     blank: false,
+                    play: this.props.play,
                 });
             }
         }
