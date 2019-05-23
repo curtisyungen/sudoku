@@ -32,7 +32,7 @@ class Cell extends Component {
     handleInputChange = (event) => {
         this.setState({
             userInput: event.target.value
-        });
+        }, () => {this.checkCellValue()});
     }
 
     getColor = () => {
@@ -50,6 +50,12 @@ class Cell extends Component {
         this.setState({
             color: color,   
         });
+    }
+
+    checkCellValue = () => {
+        if (this.state.userInput !== this.state.value) {
+            console.log("wrong");
+        }
     }
 
     render() {
