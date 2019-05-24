@@ -14,7 +14,7 @@ class Cell extends Component {
             value: "",
             blank: null, 
             color: null,
-            userInput: "",
+            userInput: "0",
             isCorrect: null,
         }
     }
