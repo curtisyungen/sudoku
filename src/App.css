@@ -54,6 +54,13 @@
 }
 
 @media screen and (max-width: 960px) {
+
+  .buttons {
+    bottom: 200px;
+    position: absolute;
+    width: 315px;
+  }
+
   #solveGame, 
   #newGame {
     left: 50%;
@@ -63,6 +70,6 @@
   }
 
   #solveGame {
-    margin-top: -50px;
+    margin-top: 35px;
   }
 }
