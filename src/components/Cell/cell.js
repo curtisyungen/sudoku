@@ -32,6 +32,8 @@ class Cell extends Component {
 
     handleInputChange = (event) => {
 
+        event.preventDefault();
+
         let $this = this;
 
         $this.setState({
