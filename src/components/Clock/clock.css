@@ -8,9 +8,10 @@
 
 @media screen and (max-width: 960px) {
     .clock {
-        bottom: 100px;
-        margin-top: 35px;
+        bottom: 90px;
+        left: 50%;
         position: absolute;
+        transform: translate(-50%);
         width: 315px;
     }
 }
