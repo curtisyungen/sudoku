@@ -68,7 +68,7 @@ class Board extends Component {
 
             // If values array is empty, backtrack 9 cells
             if (values.length === 0) {
-                for (var i = 0; i < 9; i++) {
+                for (var i = 0; i <= 9; i++) {
                     cells.pop();
                 }
             }

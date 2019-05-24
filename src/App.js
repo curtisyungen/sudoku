@@ -54,7 +54,7 @@ class App extends Component {
 
         <div className="buttons">
           {/* Restart */}
-          {this.state.play ? (
+          {/* {this.state.play ? (
             <button
               className="btn btn-outline-dark btn-sm button"
               id="restartGame"
@@ -67,7 +67,7 @@ class App extends Component {
             </button>
           ) : (
             <></>
-          )}
+          )} */}
 
           {/* New Game */}
           {!this.state.play ? (
@@ -88,7 +88,7 @@ class App extends Component {
           {/* Solve */}
           {this.state.play ? (
             <button
-              className="btn btn-danger btn-sm button"
+              className="btn btn-outline-danger btn-sm button"
               id="solveGame"
               onClick={(event) => {
                 event.preventDefault();
@@ -104,7 +104,7 @@ class App extends Component {
           {/* Submit */}
           {this.state.play ? (
             <button
-              className="btn btn-success btn-sm button"
+              className="btn btn-outline-success btn-sm button"
               id="submitGame"
               type="submit"
               onClick={(event) => {

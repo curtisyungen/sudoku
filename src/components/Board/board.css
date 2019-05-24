@@ -3,19 +3,3 @@
     margin: 20px auto;
     max-width: 450px;
 }
-
-.button {
-    float: left;
-    margin-right: 3px;
-}
-
-.buttons {
-    margin: 20px auto;
-    text-align: center;
-    width: 450px;
-}
-
-#submitGame {
-    float: right;
-    margin-right: 0px;
-}
