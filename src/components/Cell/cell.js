@@ -81,7 +81,8 @@ class Cell extends Component {
                 maxLength="1" 
                 onChange={this.handleInputChange}
                 readOnly={!this.state.blank}
-                value={this.state.blank && this.props.play ? (this.state.userInput):(this.props.data.value)}
+                value={this.state.userInput}
+                // value={this.state.blank && this.props.play ? (this.state.userInput):(this.props.data.value)}
             />
         );
     }
