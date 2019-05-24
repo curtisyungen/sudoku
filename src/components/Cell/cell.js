@@ -36,8 +36,6 @@ class Cell extends Component {
         }, () => {
             this.checkCellValue();
         });
-
-        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
     }
 
     getColor = () => {
