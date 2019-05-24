@@ -4,10 +4,16 @@
     width: 450px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
+    .board {
+        height: 405px;
+        width: 405px;
+    }
+}
+
+@media screen and (max-width: 420px) {
     .board {
         height: 315px;
         width: 315px;
-        
     }
 }

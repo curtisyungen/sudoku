@@ -5,9 +5,3 @@
     text-align: center;
     width: 100%;
 }
-
-@media screen and (max-width: 960px) {
-    .clock {
-        width: 315px;
-    }
-}
