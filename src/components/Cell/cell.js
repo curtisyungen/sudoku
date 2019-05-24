@@ -30,12 +30,6 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
-    componentDidUpdate = (prevProps) => {
-        if (!this.props.play) {
-            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
-        }
-    }
-
     handleInputChange = (event) => {
 
         event.preventDefault();
@@ -44,6 +38,7 @@ class Cell extends Component {
             userInput: event.target.value
         }, () => {
             this.checkCellValue();
+            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
         });
     }
 
