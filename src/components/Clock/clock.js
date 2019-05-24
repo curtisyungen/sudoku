@@ -32,7 +32,7 @@ class Clock extends Component {
     }
 
     startTimer = () => {
-        let count, counter = 0;
+        let count, counter = 1;
         let $this = this;
         
         let timer = setInterval(function() {
