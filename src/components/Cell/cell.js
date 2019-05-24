@@ -72,7 +72,7 @@ class Cell extends Component {
             });
         }
 
-        this.props.updateBoardValues($this.state.row, $this.state.col, $this.state.userInput, $this.state.value);
+        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
     }
 
     render() {
