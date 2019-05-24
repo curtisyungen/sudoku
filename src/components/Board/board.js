@@ -109,7 +109,6 @@ class Board extends Component {
     }
     
     setBoardValues = () => {
-        
         let boardRow = [];
         let boardValues = [];
 
@@ -121,20 +120,20 @@ class Board extends Component {
             boardValues.push(boardRow);
         }
 
-        console.log(boardValues);
+        this.setState({
+            boardValues: boardValues,
+        });
     }
 
     updateBoardValues = (row, col, userInput, value) => {
-        console.log(row, col, userInput, value);
-
         let boardValues = this.state.boardValues;
         let cellValue = [userInput, value];
 
-        boardValues.push(cellValue);
+        boardValues[row][col] = cellValue;
 
         this.setState({
-            boardValues: null,
-        });
+            boardValues: boardValues,
+        }, () => {console.log(this.state.boardValues)});
     }
 
     render() {
