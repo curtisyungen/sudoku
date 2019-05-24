@@ -130,13 +130,13 @@ class Board extends Component {
 
     updateBoardValues = (row, col, userInput, value) => {
         let boardValues = this.state.boardValues;
-        let cellValue = [parseInt(userInput), value];
+        let cellValue = [userInput, value];
 
         boardValues[row][col] = cellValue;
 
         this.setState({
             boardValues: boardValues,
-        }, () => {console.log(this.state.boardValues)});
+        });
     }
 
     checkBoardValues = () => {
