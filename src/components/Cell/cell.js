@@ -40,6 +40,7 @@ class Cell extends Component {
             this.checkCellValue();
             this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
             console.log("2", this.state);
+            console.log("play", this.props.play);
         });
     }
 
