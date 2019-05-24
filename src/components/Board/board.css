@@ -1,12 +1,13 @@
 .board {
-    min-height: 450px;
+    height: 450px;
     margin: 100px auto 20px auto;
-    max-width: 450px;
+    width: 450px;
 }
 
 @media screen and (max-width: 960px) {
     .board {
+        height: 315px;
         margin: 50px auto 20px auto;
-        max-width: 315px;
+        width: 315px;
     }
 }

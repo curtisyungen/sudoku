@@ -56,6 +56,13 @@
 @media screen and (max-width: 960px) {
   #solveGame, 
   #newGame {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
     width: 315px;
+  }
+
+  #solveGame {
+    margin-top: -50px;
   }
 }
