@@ -9,6 +9,10 @@
   width: 450px;
 }
 
+.container {
+  padding: 0 !important;
+}
+
 @media screen and (max-width: 960px) {
 
   .button {
