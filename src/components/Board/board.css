@@ -4,6 +4,13 @@
     width: 450px;
 }
 
+@media screen and (max-width: 1024px) {
+    .board {
+        height: 540px;
+        width: 540px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .board {
         height: 405px;

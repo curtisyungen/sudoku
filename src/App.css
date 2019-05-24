@@ -13,18 +13,27 @@
   padding: 0 !important;
 }
 
+@media screen and (max-width: 1024px) {
+  .button {
+    width: 540px;
+  }
+
+  .buttons {
+    width: 540px;
+  }
+
+  #solveGame {
+    margin-top: 5px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .button {
     width: 405px;
   }
 
   .buttons {
-    margin-top: 10px;
     width: 405px;
-  }
-
-  #solveGame {
-    margin-top: 5px;
   }
 }
 
