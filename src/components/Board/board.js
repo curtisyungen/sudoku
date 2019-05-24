@@ -11,6 +11,7 @@ class Board extends Component {
         this.state = {
             cells: [],
             play: null,
+            boardValues: [],
         }
     }
 
@@ -104,6 +105,13 @@ class Board extends Component {
         return false;
     }
 
+    updateBoardValues = (row, col, userInput, value) => {
+        console.log(row, col, userInput, value);
+        this.setState({
+            boardValues: null,
+        });
+    }
+
     render() {
         return (
             <Container>
@@ -114,6 +122,7 @@ class Board extends Component {
                                 key={Math.random()}
                                 data={cell}
                                 play={this.props.play}
+                                updateBoardValues={this.updateBoardValues}
                             />
                         ))
                     ) : (

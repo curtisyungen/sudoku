@@ -33,7 +33,10 @@ class Cell extends Component {
     handleInputChange = (event) => {
         this.setState({
             userInput: event.target.value
-        }, () => {this.checkCellValue()});
+        }, () => {
+            this.checkCellValue();
+            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
+        });
     }
 
     getColor = () => {
@@ -55,13 +58,11 @@ class Cell extends Component {
 
     checkCellValue = () => {
         if (this.state.userInput !== "" && this.state.userInput !== this.state.value.toString()) {
-            console.log("wrong");
             this.setState({
                 isCorrect: false,
             });
         }
         else {
-            console.log("right");
             this.setState({
                 isCorrect: true,
             });
