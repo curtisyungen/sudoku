@@ -30,16 +30,24 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (!this.props.play) {
+            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
+        }
+    }
+
+    componentWillUnmount = () => {
+        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
+    }
+
     handleInputChange = (event) => {
 
         event.preventDefault();
 
-        let $this = this;
-
-        $this.setState({
+        this.setState({
             userInput: event.target.value
         }, () => {
-            $this.checkCellValue();
+            this.checkCellValue();
         });
     }
 
@@ -71,8 +79,6 @@ class Cell extends Component {
                 isCorrect: true,
             });
         }
-
-        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
     }
 
     render() {
