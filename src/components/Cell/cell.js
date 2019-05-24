@@ -30,6 +30,10 @@ class Cell extends Component {
         }, () => {this.getColor()});
     }
 
+    componentDidUpdate = () => {
+        console.log("Update", this.state);
+    }
+
     handleInputChange = (event) => {
         event.preventDefault();
 
