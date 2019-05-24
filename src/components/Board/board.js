@@ -116,7 +116,7 @@ class Board extends Component {
         let boardValues = [];
 
         for (var c=0; c<9; c++) {
-            boardRow.push([0]);
+            boardRow.push([0, 0]);
         }
 
         for (var r=0; r<9; r++) {
@@ -130,7 +130,7 @@ class Board extends Component {
 
     updateBoardValues = (row, col, userInput, value) => {
         let boardValues = this.state.boardValues;
-        let cellValue = [userInput, value];
+        let cellValue = [parseInt(userInput), value];
 
         boardValues[row][col] = cellValue;
 
@@ -146,7 +146,7 @@ class Board extends Component {
 
         for (var row=0; row<9; row++) {
             for (var col=0; col<9; col++) {
-                if (boardValues[row][col][0] === boardValues[row][col][1].toString()) {
+                if (boardValues[row][col][0] === boardValues[row][col][1]) {
                     console.log("Success");
                 }
                 else {
