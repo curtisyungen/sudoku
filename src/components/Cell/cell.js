@@ -14,7 +14,6 @@ class Cell extends Component {
             value: "",
             blank: null, 
             color: null,
-            userInput: "0",
             isCorrect: null,
         }
     }
@@ -28,10 +27,6 @@ class Cell extends Component {
             value: this.props.data.value,
             blank: this.props.data.blank,
         }, () => {this.getColor()});
-    }
-
-    componentDidUpdate = () => {
-        console.log("Update", this.state);
     }
 
     handleInputChange = (event) => {
