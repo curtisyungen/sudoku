@@ -31,11 +31,14 @@ class Cell extends Component {
     }
 
     handleInputChange = (event) => {
-        this.setState({
+
+        let $this = this;
+
+        $this.setState({
             userInput: event.target.value
         }, () => {
-            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
-            this.checkCellValue();
+            $this.props.updateBoardValues($this.state.row, $this.state.col, $this.state.userInput, $this.state.value);
+            $this.checkCellValue();
         });
     }
 

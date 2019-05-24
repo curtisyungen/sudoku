@@ -29,6 +29,9 @@ class Board extends Component {
             if (this.props.play) {
                 this.getNewGame();
             }
+            else {
+                this.checkBoardValues();
+            }
         }
     }
 
@@ -134,6 +137,23 @@ class Board extends Component {
         this.setState({
             boardValues: boardValues,
         }, () => {console.log(this.state.boardValues)});
+    }
+
+    checkBoardValues = () => {
+        let boardValues = this.state.boardValues;
+
+        console.log("Check Board Values", boardValues);
+
+        for (var row=0; row<9; row++) {
+            for (var col=0; col<9; col++) {
+                if (boardValues[row][col][0] === boardValues[row][col][1].toString()) {
+                    console.log("Success");
+                }
+                else {
+                    console.log("Stop");
+                }
+            }
+        }
     }
 
     render() {
