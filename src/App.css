@@ -44,16 +44,11 @@
 }
 
 #newGame {
-  margin: 0px auto;
-  width: 100%;
+  width: 49.5%;
 }
 
 #solveGame {
   float: right;
   margin-right: 0px;
-  width: 49.5%;
-}
-
-#submitGame {
   width: 49.5%;
 }
