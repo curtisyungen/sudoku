@@ -40,7 +40,6 @@ class Cell extends Component {
             this.checkCellValue();
             this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
             console.log("2", this.state);
-            console.log("play", this.props.play);
         });
     }
 
@@ -81,8 +80,7 @@ class Cell extends Component {
                 maxLength="1" 
                 onChange={this.handleInputChange}
                 readOnly={!this.state.blank}
-                value={this.state.userInput}
-                // value={this.state.blank && this.props.play ? (this.state.userInput):(this.props.data.value)}
+                value={this.state.blank && this.props.play ? (this.state.userInput):(this.props.data.value)}
             />
         );
     }
