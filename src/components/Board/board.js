@@ -16,8 +16,11 @@ class Board extends Component {
     }
 
     componentDidMount = () => {
+
         this.setState({
             play: this.props.play,
+        }, () => {
+            this.setBoardValues();
         });
     }
 
@@ -104,9 +107,31 @@ class Board extends Component {
 
         return false;
     }
+    
+    setBoardValues = () => {
+        
+        let boardRow = [];
+        let boardValues = [];
+
+        for (var c=0; c<9; c++) {
+            boardRow.push([0]);
+        }
+
+        for (var r=0; r<9; r++) {
+            boardValues.push(boardRow);
+        }
+
+        console.log(boardValues);
+    }
 
     updateBoardValues = (row, col, userInput, value) => {
         console.log(row, col, userInput, value);
+
+        let boardValues = this.state.boardValues;
+        let cellValue = [userInput, value];
+
+        boardValues.push(cellValue);
+
         this.setState({
             boardValues: null,
         });

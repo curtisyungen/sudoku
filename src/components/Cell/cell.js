@@ -35,8 +35,9 @@ class Cell extends Component {
             userInput: event.target.value
         }, () => {
             this.checkCellValue();
-            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
         });
+
+        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
     }
 
     getColor = () => {
