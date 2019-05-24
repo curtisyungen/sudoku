@@ -36,10 +36,6 @@ class Cell extends Component {
         }
     }
 
-    componentWillUnmount = () => {
-        this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
-    }
-
     handleInputChange = (event) => {
 
         event.preventDefault();
