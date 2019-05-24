@@ -1,5 +1,6 @@
 .board {
     height: 450px;
+    margin: 50px auto 20px auto;
     width: 450px;
 }
 
@@ -7,5 +8,6 @@
     .board {
         height: 315px;
         width: 315px;
+        
     }
 }

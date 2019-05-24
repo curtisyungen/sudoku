@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     return (
-      <Container id="mainContainer">
+      <Container>
 
         <Board 
           play={this.state.play}

@@ -9,12 +9,6 @@
   width: 450px;
 }
 
-#mainContainer {
-  margin: 50px auto 20px auto;
-  padding: 0;
-  width: 450px;
-}
-
 @media screen and (max-width: 960px) {
 
   .button {
@@ -23,12 +17,6 @@
 
   .buttons {
     margin-top: 10px;
-    width: 315px;
-  }
-
-  #mainContainer {
-    margin: 50px auto 20px auto;
-    padding: 0;
     width: 315px;
   }
 
