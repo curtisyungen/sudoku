@@ -60,6 +60,12 @@
     width: 315px;
   }
 
+  .container {
+    margin: 50px auto 20px auto;
+    padding: 0;
+    width: 315px;
+  }
+
   #solveGame, 
   #newGame {
     width: 315px;
