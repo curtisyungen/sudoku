@@ -27,11 +27,6 @@ class App extends Component {
     });
   }
 
-  newGame = () => {
-    this.endGame();
-    this.startGame();
-  }
-
   solveGame = () => {
     this.endGame();
   }
@@ -53,7 +48,7 @@ class App extends Component {
             id="newGame"
             onClick={(event) => {
               event.preventDefault();
-              this.newGame();
+              this.startGame();
             }}
           >
             New Game
