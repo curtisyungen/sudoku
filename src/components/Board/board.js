@@ -34,7 +34,7 @@ class Board extends Component {
         let cells = [];
         let values;
 
-        while (cells.length < 81 && limit < 15000) {
+        while (cells.length < 81 && limit < 50000) {
             row = Math.floor(cells.length / 9);
             col = cells.length % 9;
             rowSect = Math.floor(row / 3);
