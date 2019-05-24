@@ -6,6 +6,7 @@
 
 @media screen and (max-width: 960px) {
     .board {
-        max-width: 270px;
+        margin: 50px auto 20px auto;
+        max-width: 360px;
     }
 }

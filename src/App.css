@@ -52,3 +52,10 @@
   margin-right: 0px;
   width: 49.5%;
 }
+
+@media screen and (max-width: 960px) {
+  #solveGame, 
+  #newGame {
+    width: auto;
+  }
+}
