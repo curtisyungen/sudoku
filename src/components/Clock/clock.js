@@ -49,6 +49,7 @@ class Clock extends Component {
     }
 
     stopTimer = () => {
+        this.props.getTime(this.state.counter);
         clearInterval(this.state.timer);
     }
 

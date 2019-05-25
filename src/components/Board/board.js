@@ -104,7 +104,7 @@ class Board extends Component {
 
     getBlank = () => {
         if (this.props.play) {
-            return Math.random() > 0.5;
+            return Math.random() > 0.95;
         }
 
         return false;
@@ -129,6 +129,8 @@ class Board extends Component {
         this.setState({
             cells: cells,
         });
+
+        this.checkCellValues();
     }
 
     checkCellValues = () => {
@@ -136,25 +138,17 @@ class Board extends Component {
         // Get cells array
         let cells = this.state.cells;
 
-        // Set number wrong equal to zero
-        let wrong = 0;
-
-        // In blank cells only, compare user input to cell value and tally non-matching values
+        // Loop through blank cells array to find incorrect cells
         for (var c in cells) {
             if (cells[c].blank) {
-                if (cells[c].userInput !== cells[c].value) {
-                    wrong += 1;
+                if (cells[c].isCorrect !== true) {
+                    this.props.getResult("incomplete");
+                    return;
                 }
             }
         }
 
-        // Determine result and send to parent
-        if (wrong > 0) {
-            this.props.getResult("wrong")
-        }
-        else {
-            this.props.getResult("right");
-        }
+        this.props.getResult("complete");
     }
 
     render() {

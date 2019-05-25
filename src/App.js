@@ -12,27 +12,43 @@ class App extends Component {
 
     this.state = {
       play: false,
+      solve: false,
       result: null,
+      bestTime: "99:99",
     }
   }
 
   startGame = () => {
     this.setState({
       play: true,
+      solve: false,
       result: null,
     });
   }
 
-  endGame = () => {
+  endGame = (key) => {
     this.setState({
       play: false,
+      solve: key === "solve",
     });
   }
 
   getResult = (result) => {
+    if (result === "complete") {
+        this.endGame();
+    }
+
     this.setState({
       result: result,
     });
+  }
+
+  getTime = (time) => {
+    if (time < this.state.bestTime && !this.state.solve) {
+      this.setState({
+        bestTime: time,
+      });
+    }
   }
 
   render() {
@@ -59,7 +75,7 @@ class App extends Component {
               }}
             >
               New Game
-          </button>
+            </button>
 
             {/* Solve */}
 
@@ -68,7 +84,7 @@ class App extends Component {
               id="solveGame"
               onClick={(event) => {
                 event.preventDefault();
-                this.endGame();
+                this.endGame("solve");
               }}
             >
               Solve
@@ -79,7 +95,17 @@ class App extends Component {
           <Clock
             start={this.startGame}
             play={this.state.play}
+            getTime={this.getTime}
           />
+
+          {this.state.bestTime !== "99:99" ? (
+            <div id="bestTime">
+                <p>BEST TIME</p>
+                {this.state.bestTime}
+            </div>
+          ) : (
+            <></>
+          )}
 
         </span>
 
