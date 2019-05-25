@@ -39,47 +39,47 @@ class App extends Component {
     return (
       <Container>
 
-        <span className={`mainSpan result-${this.state.result}`}>
+        <span className={`backgroundSpan result-${this.state.result}`}>
 
-        <Board 
-          play={this.state.play}
-          getResult={this.getResult}
-        />
+          <Board
+            play={this.state.play}
+            getResult={this.getResult}
+          />
 
-        <div className="buttons">
+          <div className="buttons">
 
-          {/* New Game */}
+            {/* New Game */}
 
-          <button
-            className="btn btn-dark btn-sm button"
-            id="newGame"
-            onClick={(event) => {
-              event.preventDefault();
-              this.startGame();
-            }}
-          >
-            New Game
-          </button>
-            
-          {/* Solve */}
-
-          <button
-            className="btn btn-danger btn-sm button"
-            id="solveGame"
-            onClick={(event) => {
-              event.preventDefault();
-              this.endGame();
-            }}
-          >
-            Solve
+            <button
+              className="btn btn-dark btn-sm button"
+              id="newGame"
+              onClick={(event) => {
+                event.preventDefault();
+                this.startGame();
+              }}
+            >
+              New Game
           </button>
 
-        </div>
+            {/* Solve */}
 
-        <Clock
-          start={this.startGame}
-          play={this.state.play}
-        />
+            <button
+              className="btn btn-danger btn-sm button"
+              id="solveGame"
+              onClick={(event) => {
+                event.preventDefault();
+                this.endGame();
+              }}
+            >
+              Solve
+          </button>
+
+          </div>
+
+          <Clock
+            start={this.startGame}
+            play={this.state.play}
+          />
 
         </span>
 
