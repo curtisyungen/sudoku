@@ -1,6 +1,10 @@
 .button {
-  margin-right: 3px;
+  margin-right: 6px;
   width: 222px;
+}
+
+#solveGame {
+  margin-right: 0px;
 }
 
 .buttons {
@@ -11,6 +15,28 @@
 
 .container {
   padding: 0 !important;
+}
+
+.mainSpan {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.result-null {
+  background: white;
+}
+
+.result-right {
+  background: rgba(0, 128, 0, 0.575);
+}
+
+.result-wrong {
+  background: rgba(248, 0, 0, 0.733);
 }
 
 @media screen and (max-width: 1024px) {

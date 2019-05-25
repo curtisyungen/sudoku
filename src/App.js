@@ -12,12 +12,14 @@ class App extends Component {
 
     this.state = {
       play: false,
+      result: null,
     }
   }
 
   startGame = () => {
     this.setState({
       play: true,
+      result: null,
     });
   }
 
@@ -27,16 +29,21 @@ class App extends Component {
     });
   }
 
-  solveGame = () => {
-    this.endGame();
+  getResult = (result) => {
+    this.setState({
+      result: result,
+    });
   }
 
   render() {
     return (
       <Container>
 
+        <span className={`mainSpan result-${this.state.result}`}>
+
         <Board 
           play={this.state.play}
+          getResult={this.getResult}
         />
 
         <div className="buttons">
@@ -44,7 +51,7 @@ class App extends Component {
           {/* New Game */}
 
           <button
-            className="btn btn-outline-dark btn-sm button"
+            className="btn btn-dark btn-sm button"
             id="newGame"
             onClick={(event) => {
               event.preventDefault();
@@ -57,11 +64,11 @@ class App extends Component {
           {/* Solve */}
 
           <button
-            className="btn btn-outline-danger btn-sm button"
+            className="btn btn-danger btn-sm button"
             id="solveGame"
             onClick={(event) => {
               event.preventDefault();
-              this.solveGame();
+              this.endGame();
             }}
           >
             Solve
@@ -73,6 +80,8 @@ class App extends Component {
           start={this.startGame}
           play={this.state.play}
         />
+
+        </span>
 
       </Container>
     )

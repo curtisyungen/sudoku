@@ -10,8 +10,7 @@ class Board extends Component {
 
         this.state = {
             cells: [],
-            play: null,
-            boardValues: [],
+            play: null
         }
     }
 
@@ -19,8 +18,6 @@ class Board extends Component {
 
         this.setState({
             play: this.props.play,
-        }, () => {
-            this.setBoardValues();
         });
     }
 
@@ -30,7 +27,7 @@ class Board extends Component {
                 this.getNewGame();
             }
             else {
-                this.checkBoardValues();
+                this.checkCellValues();
             }
         }
     }
@@ -92,6 +89,7 @@ class Board extends Component {
                     value: value,
                     userInput: "",
                     blank: this.getBlank(),
+                    isCorrect: null,
                 });
             }
 
@@ -102,8 +100,6 @@ class Board extends Component {
         this.setState({
             cells: cells
         });
-
-        
     }
 
     getBlank = () => {
@@ -113,48 +109,51 @@ class Board extends Component {
 
         return false;
     }
-    
-    setBoardValues = () => {
-        let boardRow = [];
-        let boardValues = [];
-
-        for (var c=0; c<9; c++) {
-            boardRow.push([0, 0]);
-        }
-
-        for (var r=0; r<9; r++) {
-            boardValues.push(boardRow);
-        }
-
-        this.setState({
-            boardValues: boardValues,
-        });
-    }
 
     updateCells = (row, col, userInput) => {
+
+        // Get cells array
         let cells = this.state.cells;
 
+        // Calculate index in cells array
         let count = row * 9 + col;
 
-        cells[count].userInput = parseInt(userInput);
+        // Determine if user input matches cell value. Possible values = true, false, null
+        let isCorrect = userInput !== "" && userInput !== null ? (parseInt(userInput) === cells[count].value):(null);
 
+        // Update userInput and isCorrect attributes in cell array
+        cells[count].userInput = parseInt(userInput);
+        cells[count].isCorrect = isCorrect;
+
+        // Update cell array in state
         this.setState({
             cells: cells,
         });
     }
 
-    checkBoardValues = () => {
-        let boardValues = this.state.boardValues;
+    checkCellValues = () => {
 
-        for (var row=0; row<9; row++) {
-            for (var col=0; col<9; col++) {
-                if (boardValues[row][col][0] === boardValues[row][col][1]) {
-                    console.log("Success");
-                }
-                else {
-                    console.log("Stop");
+        // Get cells array
+        let cells = this.state.cells;
+
+        // Set number wrong equal to zero
+        let wrong = 0;
+
+        // In blank cells only, compare user input to cell value and tally non-matching values
+        for (var c in cells) {
+            if (cells[c].blank) {
+                if (cells[c].userInput !== cells[c].value) {
+                    wrong += 1;
                 }
             }
+        }
+
+        // Determine result and send to parent
+        if (wrong > 0) {
+            this.props.getResult("wrong")
+        }
+        else {
+            this.props.getResult("right");
         }
     }
 

@@ -27,9 +27,9 @@ class Cell extends Component {
             value: this.props.data.value,
             userInput: this.props.data.userInput,
             blank: this.props.data.blank,
+            isCorrect: this.props.data.isCorrect,
         }, () => {
             this.getColor();
-            this.checkCellValue();
         });
     }
 
@@ -37,7 +37,6 @@ class Cell extends Component {
         this.setState({
             userInput: event.target.value
         }, () => {
-            this.checkCellValue();
             this.props.updateCells(this.state.row, this.state.col, this.state.userInput);
         });
     }
@@ -59,26 +58,14 @@ class Cell extends Component {
         });
     }
 
-    checkCellValue = () => {
-        if (this.state.userInput !== "" && !isNaN(this.state.userInput) && this.state.userInput !== this.state.value) {
-            this.setState({
-                isCorrect: false,
-            });
-        }
-        else {
-            this.setState({
-                isCorrect: true,
-            });
-        }
-    }
-
     render() {
         return (
             <input 
-                className={`cell blank-${this.state.blank} correct-${this.state.isCorrect} ${this.state.color}`}  
+                className={`cell blank-${this.state.blank} correct-${this.props.data.isCorrect} ${this.state.color}`}  
                 maxLength="1" 
                 onChange={this.handleInputChange}
                 readOnly={!this.state.blank}
+                type="number"
                 value={this.state.blank && this.props.play ? (this.state.userInput || ""):(this.props.data.value)}
             />
         );
