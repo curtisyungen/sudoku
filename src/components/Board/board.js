@@ -90,6 +90,7 @@ class Board extends Component {
                     rowSect: rowSect,
                     colSect: colSect,
                     value: value,
+                    userInput: "",
                     blank: this.getBlank(),
                 });
             }
@@ -101,6 +102,8 @@ class Board extends Component {
         this.setState({
             cells: cells
         });
+
+        
     }
 
     getBlank = () => {
@@ -128,21 +131,20 @@ class Board extends Component {
         });
     }
 
-    updateBoardValues = (row, col, userInput, value) => {
-        let boardValues = this.state.boardValues;
-        let cellValue = [userInput, value];
+    updateCells = (row, col, userInput) => {
+        let cells = this.state.cells;
 
-        boardValues[row][col] = cellValue;
+        let count = row * 9 + col;
+
+        cells[count].userInput = parseInt(userInput);
 
         this.setState({
-            boardValues: boardValues,
+            cells: cells,
         });
     }
 
     checkBoardValues = () => {
         let boardValues = this.state.boardValues;
-
-        console.log("Check Board Values", boardValues);
 
         for (var row=0; row<9; row++) {
             for (var col=0; col<9; col++) {
@@ -166,7 +168,7 @@ class Board extends Component {
                                 key={Math.random()}
                                 data={cell}
                                 play={this.props.play}
-                                updateBoardValues={this.updateBoardValues}
+                                updateCells={this.updateCells}
                             />
                         ))
                     ) : (

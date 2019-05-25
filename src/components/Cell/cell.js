@@ -25,20 +25,20 @@ class Cell extends Component {
             rowSect: this.props.data.rowSect,
             colSect: this.props.data.colSect,
             value: this.props.data.value,
+            userInput: this.props.data.userInput,
             blank: this.props.data.blank,
-        }, () => {this.getColor()});
+        }, () => {
+            this.getColor();
+            this.checkCellValue();
+        });
     }
 
     handleInputChange = (event) => {
-        event.preventDefault();
-
         this.setState({
             userInput: event.target.value
         }, () => {
-            console.log("1", this.state);
             this.checkCellValue();
-            this.props.updateBoardValues(this.state.row, this.state.col, this.state.userInput, this.state.value);
-            console.log("2", this.state);
+            this.props.updateCells(this.state.row, this.state.col, this.state.userInput);
         });
     }
 
@@ -60,7 +60,7 @@ class Cell extends Component {
     }
 
     checkCellValue = () => {
-        if (this.state.userInput !== "" && this.state.userInput !== this.state.value.toString()) {
+        if (this.state.userInput !== "" && !isNaN(this.state.userInput) && this.state.userInput !== this.state.value) {
             this.setState({
                 isCorrect: false,
             });
