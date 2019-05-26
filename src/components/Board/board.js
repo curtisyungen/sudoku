@@ -104,7 +104,7 @@ class Board extends Component {
 
     getBlank = () => {
         if (this.props.play) {
-            return Math.random() > 0.95;
+            return Math.random() > 0.5;
         }
 
         return false;

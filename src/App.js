@@ -38,6 +38,11 @@ class App extends Component {
         this.endGame();
     }
 
+    if (result === "incomplete" && this.state.solve) {
+      this.endGame();
+      result = "solved"
+    }
+
     this.setState({
       result: result,
     });
