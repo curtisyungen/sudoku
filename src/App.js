@@ -72,7 +72,7 @@ class App extends Component {
             {/* New Game */}
 
             <button
-              className="btn btn-dark btn-sm button"
+              className={`btn btn-dark btn-sm button shown-${!this.state.play}`}
               id="newGame"
               onClick={(event) => {
                 event.preventDefault();
@@ -85,7 +85,7 @@ class App extends Component {
             {/* Solve */}
 
             <button
-              className="btn btn-danger btn-sm button"
+              className={`btn btn-danger btn-sm button shown-${this.state.play}`}
               id="solveGame"
               onClick={(event) => {
                 event.preventDefault();

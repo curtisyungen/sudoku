@@ -1,6 +1,5 @@
 .button {
-  margin-right: 6px;
-  width: 222px;
+  width: 100%;
 }
 
 .buttons {
@@ -32,11 +31,15 @@
 }
 
 .result-complete {
-  background: rgba(0, 128, 0, 0.575);
+  background: rgba(0, 236, 0, 0.575);
 }
 
-#solveGame {
-  margin-right: 0px;
+.shown-false {
+  display: none;
+}
+
+.shown-true {
+  display: block;
 }
 
 #bestTime {
