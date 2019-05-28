@@ -64,6 +64,7 @@ class App extends Component {
           <Board
             play={this.state.play}
             getResult={this.getResult}
+            endGame={this.endGame}
           />
 
           <div className="buttons">

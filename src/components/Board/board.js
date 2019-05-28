@@ -10,7 +10,8 @@ class Board extends Component {
 
         this.state = {
             cells: [],
-            play: null
+            play: null,
+            errors: 0,
         }
     }
 
@@ -98,7 +99,8 @@ class Board extends Component {
 
         // Update cells array in state
         this.setState({
-            cells: cells
+            cells: cells,
+            errors: 0,
         });
     }
 
@@ -120,6 +122,23 @@ class Board extends Component {
 
         // Determine if user input matches cell value. Possible values = true, false, null
         let isCorrect = userInput !== "" && userInput !== null ? (parseInt(userInput) === cells[count].value):(null);
+
+        // If user input is incorrect, increment error count
+        let errors = this.state.errors;
+        
+        if (isCorrect === false) {
+            errors += 1;
+
+            this.setState({
+                errors: errors
+            });
+        }
+
+        // If user has made three errors, end game
+        if (errors >= 3) {
+            this.props.endGame("solve");
+            return;
+        }
 
         // Update userInput and isCorrect attributes in cell array
         cells[count].userInput = parseInt(userInput);
@@ -154,6 +173,10 @@ class Board extends Component {
     render() {
         return (
             <Container>
+                <div className="errors">
+                    Mistakes: {this.state.errors} / 3
+                </div>
+
                 <div className="board">
                     {this.state.cells.length ? (
                         this.state.cells.map(cell => (
